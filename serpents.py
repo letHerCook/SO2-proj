@@ -266,6 +266,7 @@ spawner.start()
 
 # main game loop
 while not game.game_over:
+    pygame.event.pump()
     screen.fill(COLOR_WATER)
     pygame.draw.rect(screen, (0, 0, 0),
                      (OFFSET - 5, OFFSET - 5, cell_size * number_of_cells + 10, cell_size * number_of_cells + 10), 5)
@@ -289,7 +290,7 @@ while not game.game_over:
 
     game.draw()
     pygame.display.update()
-
+pygame.event.pump()
 # when the game is over, choose and display the winner
 if game.lives_S1 > game.lives_S2:
     screen.fill(COLOR_WATER)
